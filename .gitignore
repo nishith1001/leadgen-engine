@@ -1,0 +1,31 @@
+# Secrets
+.env
+
+# Database
+data/leads.db
+data/*.db
+
+# Playwright screenshots
+data/screenshots/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+*.egg
+
+# Node / React templates
+node_modules/
+templates/*/dist/
+templates/*/.env
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db

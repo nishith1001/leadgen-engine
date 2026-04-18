@@ -1,0 +1,56 @@
+# Niche configuration for the lead generation engine.
+# Each entry defines scraping parameters and scoring thresholds.
+
+niches:
+  hvac:
+    display_name: "HVAC & Air Conditioning"
+    google_places_type: "hvac_contractor"
+    keywords:
+      - "hvac"
+      - "air conditioning"
+      - "heating and cooling"
+      - "furnace repair"
+      - "ac repair"
+    template: "hvac"
+    min_score_to_contact: 4.0   # leads scoring below this are skipped
+    target_markets:
+      - "Phoenix, AZ"
+      - "Houston, TX"
+      - "Dallas, TX"
+      - "Atlanta, GA"
+
+  plumbing:
+    display_name: "Plumbing Services"
+    google_places_type: "plumber"
+    keywords:
+      - "plumber"
+      - "plumbing"
+      - "drain cleaning"
+      - "water heater"
+    template: null              # template not built yet
+    min_score_to_contact: 4.0
+    target_markets:
+      - "Chicago, IL"
+      - "Los Angeles, CA"
+
+  roofing:
+    display_name: "Roofing Contractors"
+    google_places_type: "roofing_contractor"
+    keywords:
+      - "roofing"
+      - "roof repair"
+      - "roofer"
+    template: null
+    min_score_to_contact: 4.0
+    target_markets: []
+
+  landscaping:
+    display_name: "Lawn & Landscaping"
+    google_places_type: "landscaper"
+    keywords:
+      - "landscaping"
+      - "lawn care"
+      - "lawn mowing"
+    template: null
+    min_score_to_contact: 3.5
+    target_markets: []

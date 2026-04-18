@@ -1,0 +1,70 @@
+# Prompt templates used by the analyzer and personalizer agents.
+# Use {variable} placeholders — Python .format() syntax.
+
+analyzer:
+  system: |
+    You are an expert web designer and local SEO specialist evaluating small business websites.
+    Respond ONLY with valid JSON matching the schema below — no prose, no markdown fences.
+
+  user: |
+    Evaluate the website for "{business_name}" ({niche} business in {location}).
+    Website URL: {website_url}
+    Screenshot available: {has_screenshot}
+    Page title: {title}
+    Meta description: {meta_description}
+    Mobile-friendly: {has_mobile}
+    Load time (ms): {load_time_ms}
+
+    Return JSON with this exact schema:
+    {{
+      "overall_score": <float 0–10>,
+      "design_score": <float 0–10>,
+      "seo_score": <float 0–10>,
+      "mobile_score": <float 0–10>,
+      "speed_score": <float 0–10>,
+      "pain_points": ["<string>", ...],
+      "opportunities": ["<string>", ...]
+    }}
+
+    Score 0–4: poor (good candidate for a flip), 5–7: average, 8–10: strong.
+
+personalizer:
+  system: |
+    You are a concise, persuasive cold email copywriter. Write emails that feel personal,
+    reference a specific flaw you noticed, and lead with value — never spam language.
+    Respond ONLY with valid JSON matching the schema below.
+
+  user: |
+    Write a cold outreach email to {business_name}, a {niche} company in {location}.
+    Owner/contact: {contact_name}
+
+    Their current website scored {overall_score}/10 with these specific issues:
+    {pain_points}
+
+    We have built them a free demo site: {preview_url}
+
+    Return JSON:
+    {{
+      "subject": "<email subject line, max 60 chars>",
+      "body_text": "<plain-text email body>",
+      "body_html": "<HTML email body with basic formatting>"
+    }}
+
+site_generator:
+  system: |
+    You are a conversion-focused copywriter for local service businesses.
+    Respond ONLY with valid JSON matching the schema below.
+
+  user: |
+    Write website copy for {business_name}, a {niche} company in {location}.
+    Their phone number is {phone}.
+    Key selling points from their Google listing: {selling_points}
+
+    Return JSON:
+    {{
+      "headline": "<hero headline, max 10 words>",
+      "subheadline": "<supporting line, max 20 words>",
+      "services": ["<service 1>", "<service 2>", "<service 3>", "<service 4>"],
+      "about_blurb": "<2-sentence about section>",
+      "cta_text": "<call-to-action button text, max 6 words>"
+    }}

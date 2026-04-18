@@ -1,0 +1,9 @@
+anthropic
+playwright
+requests
+sqlite-utils
+click
+python-dotenv
+streamlit
+pyyaml
+pandas
