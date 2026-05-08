@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS leads (
     screenshot_path   TEXT,                       -- local path to Playwright screenshot
     scraped_at        DATETIME DEFAULT (datetime('now')),
     status            TEXT    NOT NULL DEFAULT 'new'
-                              CHECK(status IN ('new','analyzed','generated','contacted','replied','deal','disqualified'))
+                              CHECK(status IN ('new','scraped','analyzed','generated','contacted','replied','deal','disqualified'))
 );
 
 -- ─────────────────────────────────────────────
